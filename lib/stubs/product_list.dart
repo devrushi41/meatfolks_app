@@ -1,0 +1,60 @@
+import 'package:meatfolks_client/business_logic/models/list_product_model.dart';
+
+List<ListProduct> ProductList = [
+  ListProduct(
+      id: "001",
+      name: "Chicken Boneless",
+      category: "Chicken",
+      image: "assets/images/nonveg.png",
+      rating: 5.0,
+      units: 'Kg',
+      price: 240),
+  ListProduct(
+      id: "001",
+      name: "Chicken Boneless",
+      category: "Chicken",
+      image: "assets/images/nonveg.png",
+      rating: 5.0,
+      units: 'Kg',
+      price: 240),
+  ListProduct(
+      id: "001",
+      name: "Chicken Boneless",
+      category: "Chicken",
+      image: "assets/images/nonveg.png",
+      rating: 5.0,
+      units: 'Kg',
+      price: 240),
+  ListProduct(
+      id: "001",
+      name: "Chicken Boneless",
+      category: "Chicken",
+      image: "assets/images/nonveg.png",
+      rating: 5.0,
+      units: 'Kg',
+      price: 240),
+  ListProduct(
+      id: "001",
+      name: "Chicken Boneless",
+      category: "Chicken",
+      image: "assets/images/nonveg.png",
+      rating: 5.0,
+      units: 'Kg',
+      price: 240),
+  ListProduct(
+      id: "001",
+      name: "Chicken Boneless",
+      category: "Chicken",
+      image: "assets/images/nonveg.png",
+      rating: 5.0,
+      units: 'Kg',
+      price: 240),
+  ListProduct(
+      id: "001",
+      name: "Chicken Boneless",
+      category: "Chicken",
+      image: "assets/images/nonveg.png",
+      rating: 5.0,
+      units: 'Kg',
+      price: 240),
+];
