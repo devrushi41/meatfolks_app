@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../widgets/weight_option.dart';
+import '../widgets/cutsize_option.dart';
+import '../widgets/addon_options.dart';
 
 class SingleProduct extends StatefulWidget {
   @override
@@ -103,248 +106,25 @@ class _SingleProductState extends State<SingleProduct> {
                       style: TextStyle(fontSize: 14, height: 1.5),
                       textAlign: TextAlign.justify,
                     ),
-                    // SizedBox(
-                    //   width: 20,
-                    // ),
-                    // Flexible(
-                    //   child: Text(
-                    //     "sl21",
-                    //     style: TextStyle(fontSize: 16, height: 1.5),
-                    //   ),
-                    // ),
                   )),
               SizedBox(
                 height: 20,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Weight",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
-                    RadioListTile(
-                      value: 1,
-                      groupValue: selectedRadioTile,
-                      title: Text("500gm"),
-                      onChanged: (val) {
-                        print("Radio Tile pressed $val");
-                        setSelectedRadioTile(val);
-                        setPrice(val);
-                      },
-                      activeColor: Colors.red,
-                      secondary: Container(child: Text("₹100/-")),
-                      selected: selectedRadioTile == 1 ? true : false,
-                    ),
-                    RadioListTile(
-                      value: 2,
-                      groupValue: selectedRadioTile,
-                      title: Text("1kg"),
-                      onChanged: (val) {
-                        print("Radio Tile pressed $val");
-                        setSelectedRadioTile(val);
-                        setPrice(val);
-                      },
-                      activeColor: Colors.red,
-                      secondary: Container(child: Text("₹200/-")),
-                      selected: selectedRadioTile == 2 ? true : false,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Cut Size",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
-                    RadioListTile(
-                      value: 1,
-                      groupValue: selectedCutRadioTile,
-                      title: Text("small"),
-                      onChanged: (val) {
-                        print("Radio Tile pressed $val");
-                        setSelectedCutRadioTile(val);
-                      },
-                      activeColor: Colors.red,
-                      selected: selectedCutRadioTile == 1 ? true : false,
-                    ),
-                    RadioListTile(
-                      value: 2,
-                      groupValue: selectedCutRadioTile,
-                      title: Text("Medium"),
-                      onChanged: (val) {
-                        print("Radio Tile pressed $val");
-                        setSelectedCutRadioTile(val);
-                      },
-                      activeColor: Colors.red,
-                      selected: selectedCutRadioTile == 2 ? true : false,
-                    ),
-                    RadioListTile(
-                      value: 3,
-                      groupValue: selectedCutRadioTile,
-                      title: Text("Large"),
-                      onChanged: (val) {
-                        print("Radio Tile pressed $val");
-                        setSelectedCutRadioTile(val);
-                      },
-                      activeColor: Colors.red,
-                      selected: selectedCutRadioTile == 3 ? true : false,
-                    ),
-                  ],
-                ),
-              ),
+              WeightOption(),
+              CutsizeOption(),
               SizedBox(
                 height: 20,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Select to include these pieces",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
-                    CheckboxListTile(
-                      controlAffinity: ListTileControlAffinity.leading,
-                      title: const Text('Liver/heart'),
-                      value: liv,
-                      activeColor: Colors.red,
-                      selected: liv == true ? true : false,
-                      onChanged: (bool value) {
-                        setState(() {
-                          this.liv = value;
-                        });
-                        print('$liv');
-                      },
-                    ),
-                    CheckboxListTile(
-                      controlAffinity: ListTileControlAffinity.leading,
-                      title: const Text('gizzard'),
-                      value: true,
-                      activeColor: Colors.red,
-                      onChanged: (bool value) {
-                        // setState(() {
-                        //   this.subvalue = value;
-                        // });
-                      },
-                    ),
-                    CheckboxListTile(
-                      controlAffinity: ListTileControlAffinity.leading,
-                      title: const Text('Leg piece'),
-                      value: false,
-                      activeColor: Colors.red,
-                      onChanged: (bool value) {
-                        // setState(() {
-                        //   this.subvalue = value;
-                        // });
-                      },
-                    ),
-                  ],
-                ),
-              ),
+              AddonOptions(),
               SizedBox(
                 height: 20,
               ),
-              // Padding(
-              //   padding: const EdgeInsets.only(left: 20, right: 20),
-              //   child: Row(
-              //     crossAxisAlignment: CrossAxisAlignment.start,
-              //     children: <Widget>[
-              //       Flexible(
-              //         child: Row(children: [
-              //           InkWell(
-              //             onTap: () {
-              //               // setState(() {
-
-              //               //   activeSize = 2;
-
-              //               // });
-              //             },
-              //             child: Padding(
-              //               padding: const EdgeInsets.only(right: 8, left: 8),
-              //               child: Container(
-              //                 decoration: BoxDecoration(
-              //                   border: Border.all(
-              //                     width: 2,
-              //                     color: Colors.orange,
-              //                   ),
-              //                   borderRadius: BorderRadius.circular(5),
-              //                   //color: Colors.orange.withOpacity(0.4)
-              //                 ),
-              //                 child: Padding(
-              //                   padding: const EdgeInsets.all(6.0),
-              //                   child: Text(
-              //                     "500gm",
-              //                     style: TextStyle(fontSize: 16, height: 1.5),
-              //                   ),
-              //                 ),
-              //               ),
-              //             ),
-              //           ),
-              //           InkWell(
-              //             onTap: () {
-              //               // setState(() {
-
-              //               //   activeSize = 2;
-
-              //               // });
-              //             },
-              //             child: Container(
-              //               decoration: BoxDecoration(
-              //                   border: Border.all(
-              //                     width: 2,
-              //                     color: Colors.orange,
-              //                   ),
-              //                   borderRadius: BorderRadius.circular(5),
-              //                   color: Colors.orange.withOpacity(0.4)),
-              //               child: Padding(
-              //                 padding: const EdgeInsets.all(6.0),
-              //                 child: Text(
-              //                   "1kg",
-              //                   style: TextStyle(fontSize: 16, height: 1.5),
-              //                 ),
-              //               ),
-              //             ),
-              //           ),
-              //         ]),
-              //       )
-              //     ],
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: 20,
-              // ),
-
               SizedBox(
                 height: 40,
               ),
             ],
           ),
         ),
-        // bottomSheet: Container(
-
-        //   height: 60,
-        //   width: size.width,
-        //   child: FlatButton(
-        //       color: Colors.orange,
-        //       onPressed: () {
-        //         // your add cart here
-        //       },
-        //       child: Text(
-        //         "ADD TO CART",
-        //         style: TextStyle(fontSize: 18, color: Colors.white),
-        //       )),
-        // ),
         bottomSheet: Container(
           height: 70,
           width: size.width,
