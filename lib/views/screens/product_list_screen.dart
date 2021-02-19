@@ -18,7 +18,7 @@ class ProductListScreen extends StatelessWidget {
         appBar: CustomAppBar(
           height: 200,
         ),
-        backgroundColor: Color(0xfffaf9fa),
+        // backgroundColor: Color(0xfffaf9fa),
         body: ListView.builder(
           itemCount: products.length,
           itemBuilder: (BuildContext context, int index) {

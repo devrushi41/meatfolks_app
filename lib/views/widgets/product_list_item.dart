@@ -8,74 +8,76 @@ class ProductListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(8, 4, 8, 0),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          side: BorderSide(
-            color: Colors.black,
-            width: 0.1,
-          ),
-        ),
-        elevation: 0,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0, 4.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    product.name,
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Color(0xff2f2e2f),
-                        fontWeight: FontWeight.w600),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 4.0),
-                    child: Text(
-                      'In ${product.category}',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xff2f2e2f),
+    return InkWell(
+      onTap: () {
+        print("Clicked on ");
+      },
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0, 4.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        product.name,
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xff2f2e2f),
+                            fontWeight: FontWeight.w600),
                       ),
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 4.0),
+                        child: Text(
+                          'In ${product.category}',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Color(0xff2f2e2f),
+                          ),
+                        ),
+                      ),
+                      buildRating(product.rating),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: Text(
+                          "Rs ${product.price.toStringAsFixed(2)} / ${product.units}",
+                          style: TextStyle(
+                              color: Colors.black54,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
                   ),
-                  buildRating(product.rating),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 12.0),
-                    child: Text(
-                      "Rs ${product.price.toStringAsFixed(2)} / ${product.units}",
-                      style: TextStyle(
-                          color: Color(0xffeb3a37),
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 8.0,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(10),
-                    bottomRight: Radius.circular(10)),
-                child: Image.asset(
-                  product.image,
-                  height: MediaQuery.of(context).size.height / 7,
-                  fit: BoxFit.fitHeight,
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 12.0, 0, 0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                    child: Image.asset(
+                      product.image,
+                      height: MediaQuery.of(context).size.height / 9,
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+          Divider(
+            height: 4,
+            thickness: 1,
+          ),
+        ],
       ),
     );
   }

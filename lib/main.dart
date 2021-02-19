@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:meatfolks_client/stubs/product_list.dart';
 import 'package:meatfolks_client/views/screens/loading_screen.dart';
 import 'package:meatfolks_client/views/screens/main_screen.dart';
 import 'package:meatfolks_client/views/screens/otp_screen.dart';
+import 'package:meatfolks_client/views/screens/product_list_screen.dart';
 import 'package:meatfolks_client/views/screens/register_screen.dart';
 import 'package:meatfolks_client/views/screens/splash_screen.dart';
 import './views/screens/login_screen.dart';
@@ -26,7 +28,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme(),
-      home: LoginScreen(),
+      home: ProductListScreen(
+        products: ProductList,
+      ),
     );
   }
 }
